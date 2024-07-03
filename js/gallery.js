@@ -64,26 +64,32 @@ const images = [
   },
 ];
 
+const container = document.querySelector(".gallery");
+
 function createGallery(images) {
   return images
     .map(
-      ({ preview, original }) => `
+      ({ preview, original, description }) => `
       <li class="gallery-item">
-  <a class="gallery-link" href="large-image.jpg">
+  <a class="gallery-link" href="${original}">
     <img
       class="gallery-image"
       src="${preview}"
       data-source="${original}"
-      alt="Image description"
+      alt="${description}"
     />
   </a>
-</li>
-
-//       <li data-id="${id}" class="item product-item">
-//          <img src="${img}" alt="${name}" width="300"/>
-//          <h2>${name}</h2>
-//          <p>Ціна: ${price} грн</p>
-//   </li>`
+</li>`
     )
     .join("");
+}
+
+container.insertAdjacentHTML("beforeend", createGallery(images));
+container.addEventListener("click", handleImgClick);
+
+function handleImgClick(event) {
+  event.preventDefault();
+  if (event.currentTarget === event.target) {
+    return;
+  }
 }
