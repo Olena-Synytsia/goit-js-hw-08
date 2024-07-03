@@ -72,8 +72,8 @@ function createGallery(images) {
   <a class="gallery-link" href="large-image.jpg">
     <img
       class="gallery-image"
-      src="small-image.jpg"
-      data-source="large-image.jpg"
+      src="${preview}"
+      data-source="${original}"
       alt="Image description"
     />
   </a>
