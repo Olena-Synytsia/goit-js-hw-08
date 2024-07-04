@@ -89,7 +89,9 @@ container.addEventListener("click", handleImgClick);
 
 function handleImgClick(event) {
   event.preventDefault();
-  if (event.currentTarget === event.target) {
+  if (event.currentTarget === event.target && event.target.tagName !== "IMG") {
     return;
   }
+  const largeImg = event.target.dataset.source;
+  console.log("URL:", largeImg);
 }
