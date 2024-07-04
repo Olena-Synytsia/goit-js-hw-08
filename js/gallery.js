@@ -93,5 +93,10 @@ function handleImgClick(event) {
     return;
   }
   const largeImg = event.target.dataset.source;
-  console.log("URL:", largeImg);
+
+  const instance = basicLightbox.create(`
+    <img src="${largeImg}" alt="${event.target.alt}"/>
+  `);
+
+  instance.show();
 }
